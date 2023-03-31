@@ -1,0 +1,35 @@
+{
+	"name": "@spacebarchat/api",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "pnpm run clean && pnpm run compile",
+		"clean": "rimraf ./dist",
+		"compile": "tsc -p tsconfig.build.json",
+		"prepublishOnly": "pnpm run build",
+		"dev": "nodemon --watch src --exec \"ts-node\" src/index.ts"
+	},
+	"keywords": [],
+	"author": "Puyodead1",
+	"license": "AGPL-3.0-only",
+	"files": [
+		"dist"
+	],
+	"devDependencies": {
+		"@types/node": "^18.15.11",
+		"nodemon": "^2.0.22",
+		"rimraf": "^4.4.1",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.0.3"
+	},
+	"dependencies": {
+		"@fastify/swagger": "^8.3.1",
+		"@fastify/swagger-ui": "^1.6.0",
+		"cluster": "^0.7.7",
+		"fastify": "^4.15.0",
+		"fastify-file-routes": "^1.1.2",
+		"walk": "^2.3.15"
+	}
+}
