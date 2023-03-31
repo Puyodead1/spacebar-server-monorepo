@@ -1,42 +1,46 @@
-import Swagger from "@fastify/swagger";
+import FastifySwagger from "@fastify/swagger";
 import SwaggerUI from "@fastify/swagger-ui";
 import fastify, { FastifyInstance } from "fastify";
 import fastifyNow from "fastify-now";
 import path from "path";
 
 const app: FastifyInstance = fastify({ logger: true });
-
-(async () => {
-	await app.register(fastifyNow, {
-		routesFolder: path.join(__dirname, "./routes"),
-		pathPrefix: "/api",
-	});
-	await app.register(Swagger, {
-		swagger: {
-			swagger: "3.1.0",
-			info: {
-				title: "Spacebar API",
-				description: "",
-				version: "0.0.1",
+app.register(FastifySwagger, {
+	openapi: {
+		info: {
+			title: "Spacebar API",
+			description: "",
+			version: "0.0.1",
+		},
+		externalDocs: {
+			url: "https://spacebar.chat",
+			description: "Find more info here",
+		},
+		servers: [
+			{
+				url: "/",
+				description: "Development server",
 			},
-			externalDocs: {
-				url: "https://spacebar.chat",
-				description: "Find more info here",
-			},
-			consumes: ["application/json"],
-			produces: ["application/json"],
-			tags: [],
-			definitions: {},
-			securityDefinitions: {
-				bearer: {
-					type: "apiKey",
-					name: "bearer",
-					in: "header",
+		],
+		tags: [],
+		components: {
+			securitySchemes: {
+				bearerAuth: {
+					type: "http",
+					scheme: "bearer",
+					bearerFormat: "JWT",
 				},
 			},
 		},
-	});
-	await app.register(SwaggerUI);
+	},
+});
+app.register(SwaggerUI);
+app.register(fastifyNow, {
+	routesFolder: path.join(__dirname, "./routes"),
+	pathPrefix: "/api",
+});
 
-	app.listen({ port: 3000 });
+(async () => {
+	await app.ready();
+	await app.listen({ port: 3000 });
 })();
