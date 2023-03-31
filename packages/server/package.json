@@ -29,7 +29,6 @@
 		"@fastify/swagger-ui": "^1.6.0",
 		"cluster": "^0.7.7",
 		"fastify": "^4.15.0",
-		"fastify-file-routes": "^1.1.2",
-		"walk": "^2.3.15"
+		"fastify-now": "^3.0.4"
 	}
 }

@@ -1,13 +1,17 @@
 import Swagger from "@fastify/swagger";
 import SwaggerUI from "@fastify/swagger-ui";
-import Fastify, { FastifyInstance } from "fastify";
-import { registerRoutes } from "./loader";
+import fastify, { FastifyInstance } from "fastify";
+import fastifyNow from "fastify-now";
+import path from "path";
 
-const fastify: FastifyInstance = Fastify({ logger: true });
+const app: FastifyInstance = fastify({ logger: true });
 
 (async () => {
-	await registerRoutes(fastify);
-	await fastify.register(Swagger, {
+	await app.register(fastifyNow, {
+		routesFolder: path.join(__dirname, "./routes"),
+		pathPrefix: "/api",
+	});
+	await app.register(Swagger, {
 		swagger: {
 			swagger: "3.1.0",
 			info: {
@@ -32,7 +36,7 @@ const fastify: FastifyInstance = Fastify({ logger: true });
 			},
 		},
 	});
-	await fastify.register(SwaggerUI);
+	await app.register(SwaggerUI);
 
-	fastify.listen({ port: 3000 });
+	app.listen({ port: 3000 });
 })();

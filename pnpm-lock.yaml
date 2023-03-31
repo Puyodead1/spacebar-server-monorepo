@@ -77,12 +77,9 @@ importers:
       fastify:
         specifier: ^4.15.0
         version: 4.15.0
-      fastify-file-routes:
-        specifier: ^1.1.2
-        version: 1.1.2(fastify@4.15.0)
-      walk:
-        specifier: ^2.3.15
-        version: 2.3.15
+      fastify-now:
+        specifier: ^3.0.4
+        version: 3.0.4
     devDependencies:
       '@types/node':
         specifier: ^18.15.11
@@ -1360,18 +1357,11 @@ packages:
     resolution: {integrity: sha512-cIusKBIt/R/oI6z/1nyfe2FvGKVTohVRfvkOhvx0nCEW+xf5NoCXjAHcWp93uOUBchzYcsvPlrapAdX1uW+YGg==}
     dev: false
 
-  /fastify-file-routes@1.1.2(fastify@4.15.0):
-    resolution: {integrity: sha512-bQrzaifyHhGDiSwTtbOeKLuvNOLg1Y8MzEl3sJlaOwC/TnNpNr1fklYu7oiVaFAaV3LqP7tAqDkpMhXCOYi8lQ==}
-    peerDependencies:
-      fastify: '>=3.0.0'
+  /fastify-now@3.0.4:
+    resolution: {integrity: sha512-fHKzQrmxmpBzyKFhLNnQggXvSpjfpa0jl71ncq7+tm/uoQhP1EQ2lYrDNfNwULk8edvp6ugNq2eZpfEe+u1qpA==}
+    engines: {node: '>=12.x.x'}
     dependencies:
-      fastify: 4.15.0
-      fastify-plugin: 3.0.1
-      picocolors: 1.0.0
-    dev: false
-
-  /fastify-plugin@3.0.1:
-    resolution: {integrity: sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==}
+      fastify-plugin: 4.5.0
     dev: false
 
   /fastify-plugin@4.5.0:
@@ -1453,10 +1443,6 @@ packages:
     dependencies:
       is-callable: 1.2.7
     dev: true
-
-  /foreachasync@3.0.0:
-    resolution: {integrity: sha512-J+ler7Ta54FwwNcx6wQRDhTIbNeyDcARMkOcguEqnEdtm0jKvN3Li3PDAb2Du3ubJYEWfYL83XMROXdsXAXycw==}
-    dev: false
 
   /forwarded@0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -2122,10 +2108,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /picocolors@1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-    dev: false
-
   /picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
@@ -2620,12 +2602,6 @@ packages:
   /v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
     dev: true
-
-  /walk@2.3.15:
-    resolution: {integrity: sha512-4eRTBZljBfIISK1Vnt69Gvr2w/wc3U6Vtrw7qiN5iqYJPH7LElcYh/iU4XWhdCy2dZqv1ToMyYlybDylfG/5Vg==}
-    dependencies:
-      foreachasync: 3.0.0
-    dev: false
 
   /which-boxed-primitive@1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}
