@@ -1,11 +1,12 @@
+import FastifyJWT from "@fastify/jwt";
 import FastifySwagger from "@fastify/swagger";
 import SwaggerUI from "@fastify/swagger-ui";
-import fastify, { FastifyInstance } from "fastify";
-import fastifyNow from "fastify-now";
+import Fastify, { FastifyInstance } from "fastify";
+import FastifyNow from "fastify-now";
 import path from "path";
 import prismaPlugin from "./plugins/prisma";
 
-const app: FastifyInstance = fastify({ logger: true });
+const app: FastifyInstance = Fastify({ logger: true });
 
 app.register(prismaPlugin);
 app.register(FastifySwagger, {
@@ -38,10 +39,20 @@ app.register(FastifySwagger, {
 	},
 });
 app.register(SwaggerUI);
-app.register(fastifyNow, {
+app.register(FastifyJWT, {
+	secret: "spacebar.chat", // TODO: config
+	verify: {
+		extractToken: (req) => {
+			return req.headers["authorization"];
+		},
+	},
+});
+app.register(FastifyNow, {
 	routesFolder: path.join(__dirname, "./routes"),
 	pathPrefix: "/api",
 });
+
+// TODO: validate JWT on all routes unless they have unauthenticated: true
 
 (async () => {
 	await app.ready();
