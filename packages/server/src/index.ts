@@ -3,8 +3,11 @@ import SwaggerUI from "@fastify/swagger-ui";
 import fastify, { FastifyInstance } from "fastify";
 import fastifyNow from "fastify-now";
 import path from "path";
+import prismaPlugin from "./plugins/prisma";
 
 const app: FastifyInstance = fastify({ logger: true });
+
+app.register(prismaPlugin);
 app.register(FastifySwagger, {
 	openapi: {
 		info: {

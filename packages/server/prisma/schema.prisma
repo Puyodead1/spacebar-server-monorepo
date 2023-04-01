@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  String   @id
+  username            String   @unique
+  // global_name String?
+  // display_name String?
+  avatar              String? // should be sent as null to clients
+  avatar_decoration   String? // should be sent as null to clients
+  discriminator       String
+  public_flags        BigInt
+  flags               BigInt
+  purchased_flags     BigInt
+  premium_usage_flags BigInt
+  banner              String? // should be sent as null to clients
+  banner_color        String? // should be sent as null to clients
+  accent_color        String? // should be sent as null to clients
+  bio                 String?
+  locale              String
+  nsfw_allowed        Boolean  @default(false)
+  mfa_enabled         Boolean  @default(false)
+  premium_type        Int
+  // linked_users User[] ???
+  email               String?
+  verified            Boolean  @default(false)
+  phone               String?
+  bot                 Boolean  @default(false)
+  system              Boolean  @default(false)
+  created_at          DateTime @default(now())
+  password_hash       String?
+  valid_tokens_since  DateTime @default(now())
+  totp_secret         String?
+  totp_last_ticket    String?
+}
