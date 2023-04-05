@@ -7,7 +7,7 @@
 	"scripts": {
 		"build": "pnpm run clean && pnpm run compile",
 		"clean": "rimraf ./dist",
-		"compile": "tsc -p tsconfig.build.json",
+		"compile": "tsc -p .",
 		"prepublishOnly": "pnpm run build",
 		"dev": "nodemon --watch src --exec \"ts-node\" src/index.ts"
 	},

@@ -1,4 +1,4 @@
-import { SessionStartLimit } from "@spacebarchat/util";
+import { SessionStartLimit } from "@spacebarchat/utils";
 import { NowRequestHandler } from "fastify-now";
 
 type Get = NowRequestHandler<{

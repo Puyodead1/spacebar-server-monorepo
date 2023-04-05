@@ -1,5 +1,5 @@
 {
-	"name": "@spacebarchat/api",
+	"name": "@spacebarchat/server",
 	"version": "1.0.0",
 	"description": "",
 	"main": "dist/index.js",
@@ -7,7 +7,7 @@
 	"scripts": {
 		"build": "pnpm run clean && pnpm run compile",
 		"clean": "rimraf ./dist",
-		"compile": "tsc -p tsconfig.build.json",
+		"compile": "tsc -p .",
 		"prepublishOnly": "pnpm run build",
 		"dev": "nodemon --watch src --exec \"ts-node\" src/index.ts"
 	},
@@ -33,6 +33,7 @@
 		"cluster": "^0.7.7",
 		"fastify": "^4.15.0",
 		"fastify-now": "^3.0.4",
-		"fastify-plugin": "^4.5.0"
+		"fastify-plugin": "^4.5.0",
+		"@spacebarchat/utils": "^1.0.0"
 	}
 }

@@ -3,6 +3,13 @@ lockfileVersion: '6.0'
 importers:
 
   .:
+    dependencies:
+      '@spacebarchat/gateway':
+        specifier: ^1.0.0
+        version: link:packages/gateway
+      '@spacebarchat/server':
+        specifier: ^1.0.0
+        version: link:packages/server
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: 5.43.0
@@ -31,6 +38,9 @@ importers:
       prettier:
         specifier: ^2.8.7
         version: 2.8.7
+      rimraf:
+        specifier: ^4.4.1
+        version: 4.4.1
       typescript:
         specifier: ^5.0.3
         version: 5.0.3
@@ -77,6 +87,9 @@ importers:
       '@prisma/client':
         specifier: ^4.12.0
         version: 4.12.0(prisma@4.12.0)
+      '@spacebarchat/utils':
+        specifier: ^1.0.0
+        version: link:../util
       cluster:
         specifier: ^0.7.7
         version: 0.7.7
